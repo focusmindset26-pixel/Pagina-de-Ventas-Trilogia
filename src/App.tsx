@@ -291,7 +291,7 @@ export default function App() {
               step="1"
               title="IDENTIDAD"
               subtitle="INQUEBRANTABLE"
-              image="https://i.imgur.com/QLsgbV9.jpeg"
+              image="https://i.imgur.com/EmSDggL.png"
               description="El cimiento de toda transformación real: quién eres cuando nadie te ve."
               highlights={[
                 "Auditoría de Autoconcepto: Identifica qué te frena.",
