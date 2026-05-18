@@ -209,6 +209,42 @@ const FAQItem = ({ question, answer }: any) => {
   );
 };
 
+const FloatingCTA = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 500) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.a
+          href="#checkout"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 100 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="fixed bottom-6 right-6 z-[100] bg-accent-primary text-black italic-bold p-4 sm:px-8 sm:py-4 rounded-full shadow-[0_10px_30px_rgba(16,185,129,0.3)] flex items-center gap-2 group transition-all"
+        >
+          <span className="hidden sm:inline">OBTENER TRILOGÍA</span>
+          <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+        </motion.a>
+      )}
+    </AnimatePresence>
+  );
+};
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-bg relative overflow-hidden">
@@ -216,6 +252,7 @@ export default function App() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent-primary/5 blur-[120px] pointer-events-none z-0" />
       
       <TopBar />
+      <FloatingCTA />
 
       <main className="flex-grow relative z-10">
         {/* Hero Section */}
