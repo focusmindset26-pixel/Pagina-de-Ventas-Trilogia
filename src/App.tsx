@@ -97,7 +97,6 @@ const BookCard = ({ title, subtitle, description, highlights, benefits, step, im
     </div>
     
     <h3 className="italic-bold text-2xl mb-4 group-hover:text-accent-primary transition-colors flex items-center gap-2">
-      <span className="text-white/20 select-none">0{step}.</span>
       <span>{title} <span className="text-accent-primary">{subtitle}</span></span>
     </h3>
     
@@ -326,7 +325,7 @@ export default function App() {
 
       <main className="flex-grow relative z-10">
         {/* Hero Section */}
-        <section className="container mx-auto px-4 pt-16 pb-20 text-center relative max-w-5xl">
+        <section className="container mx-auto px-4 pt-16 pb-4 text-center relative max-w-5xl">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -334,7 +333,7 @@ export default function App() {
           >
             <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
             <span className="text-accent-primary text-[10px] sm:text-xs font-black tracking-[3px] uppercase">
-              ⚠️ ATENCIÓN: SÓLO PARA ACCIONADORES DE ALTO IMPACTO
+              ATENCIÓN: SÓLO PARA PERSONAS COMPROMETIDAS CON SU VIDA
             </span>
           </motion.div>
           <motion.div 
@@ -359,7 +358,7 @@ export default function App() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-text-muted text-base sm:text-xl max-w-2xl mx-auto mb-12 font-semibold leading-relaxed"
+            className="text-text-muted text-base sm:text-xl max-w-2xl mx-auto mb-0 font-semibold leading-relaxed"
           >
             El sistema práctico, científico y sin rodeos diseñado para reconfigurar tu mentalidad limitante, eliminar la distracción digital y estructurar tus finanzas.
           </motion.p>
@@ -367,32 +366,8 @@ export default function App() {
 
         </section>
 
-        {/* Pillars Section */}
-        <section className="border-y border-white/5 bg-white/[0.01]">
-          <div className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl">
-            <Pillar 
-              icon={Clock} 
-              title="Ingeniería Mental" 
-              description="Aprende a desprogramar las creencias limitantes heredadas y a configurar un software neuronal de resultados."
-              delay={0.1}
-            />
-            <Pillar 
-              icon={Target} 
-              title="Foco Radical" 
-              description="Elimina la adicción a pantallas y procrastinación mediante el modelado de hábitos inquebrantables."
-              delay={0.2}
-            />
-            <Pillar 
-              icon={TrendingUp} 
-              title="Psicología de Riqueza" 
-              description="Entiende cómo la abundancia es mental y cómo organizar tu capital para apalancar tu verdadera libertad."
-              delay={0.3}
-            />
-          </div>
-        </section>
-
         {/* PAS / Problem agitation vs solution section */}
-        <section className="container mx-auto px-4 py-24 max-w-5xl text-center">
+        <section className="container mx-auto px-4 pt-4 pb-24 max-w-5xl text-center">
           <div className="text-accent-primary text-xs font-black tracking-[3px] uppercase mb-4">¿SEGUIRÁS EN LA DERIVA?</div>
           <h2 className="italic-bold text-4xl sm:text-5xl md:text-6xl mb-16 tracking-tighter">
             EL ABISMO DE LA <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">DIFERENCIA</span>
