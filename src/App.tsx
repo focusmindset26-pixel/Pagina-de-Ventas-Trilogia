@@ -21,13 +21,7 @@ import {
   X
 } from 'lucide-react';
 
-const scrollToCheckout = (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
-  e.preventDefault();
-  const element = document.getElementById('checkout');
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
+
 
 const TopBar = () => {
   const [timeLeft, setTimeLeft] = useState(897); // 14:57 in seconds
@@ -268,41 +262,7 @@ const FAQItem = ({ question, answer }: any) => {
   );
 };
 
-const FloatingCTA = () => {
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 500) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
-
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.button
-          onClick={scrollToCheckout}
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 100 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="fixed bottom-6 right-6 z-[100] bg-accent-primary text-black italic-bold px-6 py-4 rounded-full shadow-[0_10px_40px_rgba(255,106,0,0.4)] flex items-center gap-2 group transition-all duration-300 font-extrabold tracking-widest text-xs border border-accent-secondary/20"
-        >
-          <span>OBTENER TRILOGÍA</span>
-          <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
-        </motion.button>
-      )}
-    </AnimatePresence>
-  );
-};
 
 
 
@@ -359,7 +319,6 @@ export default function App() {
       <div className="absolute bottom-1/4 left-1/4 -translate-y-1/2 w-[400px] h-[400px] bg-accent-secondary/5 blur-[120px] pointer-events-none z-0" />
       
       <TopBar />
-      <FloatingCTA />
 
       <main className="flex-grow relative z-10">
         {/* Hero Section */}
@@ -463,23 +422,7 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* High-converting Premium CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex flex-col items-center justify-center gap-4"
-          >
-            <button
-              onClick={scrollToCheckout}
-              className="w-full sm:w-auto bg-gradient-to-r from-accent-primary to-accent-secondary text-black font-extrabold tracking-widest text-sm uppercase px-12 py-5 rounded-full hover:scale-105 transition-transform shadow-[0_10px_35px_rgba(255,106,0,0.35)] duration-300 border border-accent-secondary/30"
-            >
-              ACCEDER A LA TRILOGÍA DIGITAL POR $9.99 USD
-            </button>
-            <p className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold flex items-center gap-2">
-              <Lock size={12} className="text-accent-emerald" /> Garantía de Satisfacción de 7 días • Entrega Digital Inmediata
-            </p>
-          </motion.div>
+
         </section>
 
         {/* PAS / Storytelling: Process of Transformation Section */}
@@ -686,16 +629,9 @@ export default function App() {
             <h3 className="italic-bold text-2xl sm:text-3xl text-white mb-4 uppercase">
               LA TRILOGÍA ES EL <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">PUENTE EXACTO</span> DE ESTE PROCESO
             </h3>
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8">
+            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
               No tienes que reinventar la rueda ni sufrir años sufriendo parálisis por análisis. Hemos resumido las tácticas empíricas más potentes de neuro-productividad y desprogramación de identidad en un sistema secuencial de 3 pasos que puedes empezar a digerir hoy mismo por menos de lo que cuesta una cena de comida rápida.
             </p>
-            <button 
-              onClick={scrollToCheckout}
-              className="w-full sm:w-auto bg-gradient-to-r from-accent-primary to-accent-secondary text-black font-extrabold tracking-widest text-xs uppercase px-10 py-5 rounded-full hover:scale-105 transition-all shadow-[0_10px_30px_rgba(255,106,0,0.25)] flex items-center justify-center gap-2 mx-auto"
-            >
-              <span>SÍ, ESTO ES EXACTAMENTE LO QUE NECESITO</span>
-              <ArrowRight size={14} />
-            </button>
           </motion.div>
         </section>
 
@@ -1111,17 +1047,17 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-4 flex gap-4 text-left">
-                  <div className="shrink-0 bg-white/5 p-1 rounded-full border border-white/10 flex items-center justify-center">
+                <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-4 flex gap-4 items-center text-left">
+                  <div className="shrink-0 w-16 h-16 bg-white/5 rounded-full border border-white/10 flex items-center justify-center overflow-hidden">
                     <img 
                       src="https://i.imgur.com/l7BL98b.png" 
                       alt="Garantía de Satisfacción" 
-                      className="w-12 h-12 object-contain select-none shadow-sm"
+                      className="w-full h-full object-contain p-1.5 select-none"
                       referrerPolicy="no-referrer"
                     />
                   </div>
                   <div>
-                    <div className="text-[11px] italic-bold text-white uppercase tracking-wider mb-1">GARANTÍA DE 7 DÍAS</div>
+                    <div className="text-[11px] italic-bold text-white uppercase tracking-wider mb-1 font-sans">GARANTÍA DE 7 DÍAS</div>
                     <div className="text-[9px] text-text-muted font-bold leading-normal uppercase text-zinc-400">Reembolso incondicional y sin burocracia. No corres riesgo alguno.</div>
                   </div>
                 </div>
