@@ -1013,9 +1013,22 @@ export default function App() {
                   href="https://pay.hotmart.com/V104008401K?off=0x7xdwbg"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
+                  animate={{ 
+                    scale: [1, 1.04, 1],
+                    boxShadow: [
+                      "0 0 25px rgba(255,51,0,0.4)",
+                      "0 0 50px rgba(255,136,0,0.8)",
+                      "0 0 25px rgba(255,51,0,0.4)"
+                    ]
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  whileHover={{ scale: 1.06 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-accent-primary to-accent-secondary py-5 px-6 rounded-2xl italic-bold text-lg text-black shadow-[0_0_40px_rgba(255,106,0,0.3)] hover:scale-105 transition-all mb-8 block text-center font-black tracking-widest uppercase"
+                  className="w-full bg-gradient-to-r from-accent-primary to-accent-secondary py-5 px-6 rounded-2xl italic-bold text-lg text-white mb-8 block text-center font-black tracking-widest uppercase transition-all"
                 >
                   OBTENER MI TRILOGÍA AHORA
                 </motion.a>
