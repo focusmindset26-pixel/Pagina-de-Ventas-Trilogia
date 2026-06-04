@@ -389,7 +389,7 @@ export default function App() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="italic-bold text-[2rem] xs:text-3xl sm:text-5xl md:text-6xl lg:text-[72px] leading-[1.05] tracking-tight mb-8"
           >
-            SI LLEVAS AÑOS EMPEZANDO Y ABANDONANDO TUS OBVENTIVOS, <br />
+            SI LLEVAS AÑOS EMPEZANDO Y ABANDONANDO TUS OBJETIVOS, <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">ESTA TRILOGÍA FUE CREADA PARA ROMPER ESE PATRÓN.</span>
           </motion.h1>
 
